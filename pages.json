@@ -1,0 +1,57 @@
+{
+    "pages": [
+        {
+            "path": "pages/login",
+            "style": {
+                "navigationBarTextStyle": "white",
+                "navigationBarTitleText": "登录页",
+                "navigationBarBackgroundColor": "#07c160",
+                "navigationStyle": "custom"
+            }
+        },
+        {
+            "path": "pages/index",
+            "style": {
+                "navigationBarTextStyle": "black",
+                "navigationBarTitleText": "首页",
+                "navigationBarBackgroundColor": "#ffffff",
+                "navigationStyle": "custom"
+            }
+        },
+        {
+            "path": "pages/webview",
+            "style": {
+                "navigationBarTitleText": ""
+            }
+        },
+        {
+            "path": "pages/tasks",
+            "style": {
+                "navigationBarTextStyle": "white",
+                "navigationBarTitleText": "任务列表",
+                "navigationBarBackgroundColor": "#13beff"
+            }
+        },
+        {
+            "path": "pages/admin_tasks",
+            "style": {
+                "navigationBarTextStyle": "white",
+                "navigationBarTitleText": "【后台】任务管理",
+                "navigationBarBackgroundColor": "#13beff"
+            }
+        },
+        {
+            "path": "pages/user_task",
+            "style": {
+                "navigationBarTextStyle": "white",
+                "navigationBarTitleText": "【后台】查询任务管理",
+                "navigationBarBackgroundColor": "#13beff"
+            }
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "ai视频sc",
+        "navigationBarBackgroundColor": "#07c160"
+    }
+}

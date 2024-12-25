@@ -1,0 +1,32 @@
+{
+	"pages": [
+		{
+			"path": "pages/login",
+			"style": {
+				"navigationBarTitleText": "登录页",
+				"navigationBarBackgroundColor": "#07c160",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "首页",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/webview",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "ai视频sc",
+		"navigationBarBackgroundColor": "#07c160"
+	}
+}
