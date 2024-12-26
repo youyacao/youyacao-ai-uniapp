@@ -171,24 +171,24 @@
 							</view>
 						</u-form-item>
 						<text class="diygw-col-0"> 生成视频的自由度，可选，值越大，相关性越强 </text>
-						<u-form-item class="diygw-col-24" label="选择模式" prop="mode1">
-							<diy-selectinput @click="showMode1 = true" class="diygw-col-24" valueName="value" labelName="label" :list="mode1Datas" placeholder="请选择" v-model="mode1" type="select"></diy-selectinput>
-							<u-select mode="single-column" valueName="value" labelName="label" :list="mode1Datas" isDefaultSelect :defaultSelectValue="mode1" v-model="showMode1" @confirm="changeMode1"></u-select>
-						</u-form-item>
 						<u-form-item class="diygw-col-24" label="相机控制" prop="camera_control_type1">
 							<diy-selectinput @click="showCamera_control_type1 = true" class="diygw-col-24" valueName="value" labelName="label" :list="camera_control_type1Datas" placeholder="请选择" v-model="camera_control_type1" type="select"></diy-selectinput>
 							<u-select mode="single-column" valueName="value" labelName="label" :list="camera_control_type1Datas" isDefaultSelect :defaultSelectValue="camera_control_type1" v-model="showCamera_control_type1" @confirm="changeCamera_control_type1"></u-select>
 						</u-form-item>
-						<u-form-item class="diygw-col-24" label="纵横比" prop="aspect_ratio1">
-							<diy-selectinput @click="showAspect_ratio1 = true" class="diygw-col-24" valueName="value" labelName="label" :list="aspect_ratio1Datas" placeholder="选择纵横比，16:9, 9:16, 1:1, 4:3, 3:4, 3:2, 2:3" v-model="aspect_ratio1" type="select"></diy-selectinput>
-							<u-select mode="single-column" valueName="value" labelName="label" :list="aspect_ratio1Datas" isDefaultSelect :defaultSelectValue="aspect_ratio1" v-model="showAspect_ratio1" @confirm="changeAspect_ratio1"></u-select>
+						<u-form-item v-if="camera_control_type1 == 'auto_camera'" class="diygw-col-24" label="选择模式" prop="mode1">
+							<diy-selectinput @click="showMode1 = true" class="diygw-col-24" valueName="value" labelName="label" :list="mode1Datas" placeholder="请选择" v-model="mode1" type="select"></diy-selectinput>
+							<u-select mode="single-column" valueName="value" labelName="label" :list="mode1Datas" isDefaultSelect :defaultSelectValue="mode1" v-model="showMode1" @confirm="changeMode1"></u-select>
 						</u-form-item>
-						<u-form-item class="diygw-col-24" label="视频时长" prop="duration1">
+						<u-form-item v-if="camera_control_type1 == 'auto_camera'" class="diygw-col-24" label="视频时长" prop="duration1">
 							<u-radio-group class="flex flex-wrap diygw-col-24 justify-around" wrapClass=" justify-around" v-model="duration1">
 								<u-radio shape="circle" v-for="(duration1item, duration1index) in duration1Datas" :key="duration1index" :name="duration1item.value">
 									{{ duration1item.label }}
 								</u-radio>
 							</u-radio-group>
+						</u-form-item>
+						<u-form-item class="diygw-col-24" label="纵横比" prop="aspect_ratio1">
+							<diy-selectinput @click="showAspect_ratio1 = true" class="diygw-col-24" valueName="value" labelName="label" :list="aspect_ratio1Datas" placeholder="选择纵横比，16:9, 9:16, 1:1, 4:3, 3:4, 3:2, 2:3" v-model="aspect_ratio1" type="select"></diy-selectinput>
+							<u-select mode="single-column" valueName="value" labelName="label" :list="aspect_ratio1Datas" isDefaultSelect :defaultSelectValue="aspect_ratio1" v-model="showAspect_ratio1" @confirm="changeAspect_ratio1"></u-select>
 						</u-form-item>
 					</view>
 				</view>
@@ -374,6 +374,16 @@
 				prompt1: '',
 				negative_prompt1: '',
 				cfg_scale1: 0,
+				showCamera_control_type1: false,
+				camera_control_type1Datas: [
+					{ value: 'auto_camera', label: '自动匹配' },
+					{ value: 'forward_up', label: '镜头前进并上仰 ➡️ 推进上移' },
+					{ value: 'right_turn_forward', label: '先右旋转后前进 ➡️ 右旋推进' },
+					{ value: 'left_turn_forward', label: '先左旋并前进 ➡️ 左旋推进' },
+					{ value: 'down_back', label: '镜头下压并后退 ➡️ 下移拉远' }
+				],
+
+				camera_control_type1: 'auto_camera',
 				showMode1: false,
 				mode1Datas: [
 					{ value: 'std', label: 'std（高性能）' },
@@ -381,15 +391,11 @@
 				],
 
 				mode1: 'std',
-				showCamera_control_type1: false,
-				camera_control_type1Datas: [
-					{ value: 'down_back', label: '镜头下压并后退 ➡️ 下移拉远' },
-					{ value: 'forward_up', label: '镜头前进并上仰 ➡️ 推进上移' },
-					{ value: 'right_turn_forward', label: '先右旋转后前进 ➡️ 右旋推进' },
-					{ value: 'left_turn_forward', label: '先左旋并前进 ➡️ 左旋推进' }
+				duration1Datas: [
+					{ value: '5', label: '5秒', checked: true },
+					{ value: '10', label: '10秒', checked: false }
 				],
-
-				camera_control_type1: 'down_back',
+				duration1: '5',
 				showAspect_ratio1: false,
 				aspect_ratio1Datas: [
 					{ value: '16:9', label: '16:9' },
@@ -400,11 +406,6 @@
 				],
 
 				aspect_ratio1: '16:9',
-				duration1Datas: [
-					{ value: '5', label: '5秒', checked: true },
-					{ value: '10', label: '10秒', checked: false }
-				],
-				duration1: '5',
 				modal3: '',
 				image3: '',
 				image_tail3: '',
@@ -597,6 +598,15 @@
 				};
 				let http_header = {};
 
+				if (this.camera_control_type1 == '') {
+					this.showModal('没有选择相机控制！');
+					return;
+				} else if (this.camera_control_type1 != 'auto_camera') {
+					(http_data.duration = '5'), (http_data.mode = 'std');
+				} else {
+					delete http_data.camera_control_type;
+				}
+
 				uni.showLoading({
 					mask: true,
 					title: '加载中'
@@ -680,8 +690,8 @@
 				}
 			},
 
-			// 文件回调 自定义方法
-			async file_callbackFunction(param) {
+			// 镜头控制匹配 自定义方法
+			async camera_controlFunction(param) {
 				let thiz = this;
 			},
 			changeSwipers(evt) {
@@ -712,14 +722,15 @@
 				});
 			},
 			changeCfg_scale1(evt) {},
-			changeMode1(evt) {
-				evt.map((val, index) => {
-					this.mode1 = val.value;
-				});
-			},
 			changeCamera_control_type1(evt) {
 				evt.map((val, index) => {
 					this.camera_control_type1 = val.value;
+				});
+				this.navigateTo({ type: 'camera_controlFunction' });
+			},
+			changeMode1(evt) {
+				evt.map((val, index) => {
+					this.mode1 = val.value;
 				});
 			},
 			changeAspect_ratio1(evt) {
