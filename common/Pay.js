@@ -1,3 +1,13 @@
+
+	//  * All rights Reserved, Designed By www.youyacao.com <br>
+	//  * @Description:微信支付相关 <br>
+	//  * @version 蜻蜓AI系统  <br>
+	//  * @author:成都市一颗优雅草科技有限公司  <br>
+	//  * 注意：我司开源产品免费100%商用，但是必须遵循声明，详情查看LICENSE文件。
+	//  * 需要商业用途或者定制开发等可访问songshu.youyacao.com  联系QQ: 422108995
+	//  * 正版系统查询系统 zhengban.youyacao.com   优雅草QQ交流群：929353806
+
+
 //微信小程序相关方法
 var Pay = {
 	async pay(param){

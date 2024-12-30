@@ -1,3 +1,17 @@
+
+
+<!-- 
+	/**
+	 * All rights Reserved, Designed By www.youyacao.com <br>
+	 * @Description:首页 <br>
+	 * @version 蜻蜓AI系统  <br>
+	 * @author:成都市一颗优雅草科技有限公司  <br>
+	 * 注意：我司开源产品免费100%商用，但是必须遵循声明，详情查看LICENSE文件。
+	 * 需要商业用途或者定制开发等可访问songshu.youyacao.com  联系QQ: 422108995
+	 * 正版系统查询系统 zhengban.youyacao.com   优雅草QQ交流群：929353806
+	 */
+ -->
+
 <template>
 	<view class="container container333415">
 		<u-navbar :isSlot="true" :isFixed="false" :isMarginRight="false" :borderBottom="false" :background="headerBackgroundStyle" title="" :backTextStyle="{ color: 'inherit' }" backIconColor="#fff" titleColor="inherit" :isHome="false" :isBack="false">
@@ -18,10 +32,26 @@
 					</view>
 				</swiper-item>
 				<swiper-item class="diygw-swiper-item">
-					<view class="diygw-swiper-item-wrap flex flex-direction-column"> </view>
+					<view class="diygw-swiper-item-wrap flex flex-direction-column">
+						
+						
+						<view class="flex flex-wrap diygw-col-24 flex-direction-column justify-center flex3-clz">
+							<text class="diygw-col-24 text4-clz"> 一颗优雅草科技 </text>
+							<text class="diygw-col-24"> 科技改变未来-AI人工智能 </text>
+						</view>
+						
+						</view>
 				</swiper-item>
 				<swiper-item class="diygw-swiper-item">
-					<view class="diygw-swiper-item-wrap flex flex-direction-column"> </view>
+					<view class="diygw-swiper-item-wrap flex flex-direction-column"> 
+					
+					<view class="flex flex-wrap diygw-col-24 flex-direction-column justify-center flex4-clz">
+						<text class="diygw-col-24 text4-clz"> 一颗优雅草科技 </text>
+						<text class="diygw-col-24"> AI离我们从未遥远 </text>
+					</view>
+					
+					
+					</view>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -828,6 +858,30 @@
 		padding-left: 40rpx;
 		padding-bottom: 40rpx;
 		background-image: url(/static/090.jpg);
+		padding-right: 40rpx;
+	}
+	
+	.flex3-clz {
+		padding-top: 40rpx;
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: #ffffff;
+		flex: 1;
+		padding-left: 40rpx;
+		padding-bottom: 40rpx;
+		background-image: url(/static/960-2.png);
+		padding-right: 40rpx;
+	}
+	
+	.flex4-clz {
+		padding-top: 40rpx;
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: #ffffff;
+		flex: 1;
+		padding-left: 40rpx;
+		padding-bottom: 40rpx;
+		background-image: url(/static/960-3.png);
 		padding-right: 40rpx;
 	}
 	.text4-clz {
